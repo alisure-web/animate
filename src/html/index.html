@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate.css</title>
+    <link rel="stylesheet" href="../css/animate.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<!--
+    在使用时需要加上animated类名
+    主要分类:
+        bounce:弹性动画类
+        flash:逐渐消失/闪烁
+        flip:翻转
+        pulse:脉冲动画
+        shake:抖动
+    animated 类似于全局变量，它定义了动画的持续时间；
+    bounce 是动画具体的动画效果的名称，你可以选择任意的效果。
+-->
+<style>
+    .wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    .wrapper>div{
+        margin: 10px;
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+        background: #cccccc;
+        color: #999999;
+    }
+    /*
+     * 改变默认动画
+     * You can change the duration of your animations,
+     * add a delay or change the number of times that it plays:
+     */
+    #animate-4 {
+        animation-duration: 0.5s;
+        animation-delay: 0.5s;
+        animation-iteration-count: infinite;
+    }
+</style>
+<div class="wrapper">
+
+    <div id="animate-1" class="animated bounce">bounce</div>
+    <div id="animate-2">bounce</div>
+    <div id="animate-3">bounce</div>
+    <div id="animate-4">bounce</div>
+
+    <div class="animated infinite infinite">infinite</div>
+    <div class="animated infinite flash">flash</div>
+    <div class="animated infinite pulse">pulse</div>
+    <div class="animated infinite rubberBand">rubberBand</div>
+    <div class="animated infinite shake">shake</div>
+    <div class="animated infinite swing">swing</div>
+    <div class="animated infinite tada">tada</div>
+    <div class="animated infinite wobble">wobble</div>
+    <div class="animated infinite jello">jello</div>
+
+    <div class="animated infinite bounceIn">bounceIn</div>
+    <div class="animated infinite bounceInDown">bounceInDown</div>
+    <div class="animated infinite bounceInUp">bounceInUp</div>
+    <div class="animated infinite bounceInLeft">bounceInLeft</div>
+    <div class="animated infinite bounceInRight">bounceInRight</div>
+
+    <div class="animated infinite bounceOut">bounceOut</div>
+    <div class="animated infinite bounceOutDown">bounceOutDown</div>
+    <div class="animated infinite bounceOutUp">bounceOutUp</div>
+    <div class="animated infinite bounceOutLeft">bounceOutLeft</div>
+    <div class="animated infinite bounceOutRight">bounceOutRight</div>
+
+    <div class="animated infinite fadeIn">fadeIn</div>
+    <div class="animated infinite fadeInDown">fadeInDown</div>
+    <div class="animated infinite fadeInDownBig">fadeInDownBig</div>
+    <div class="animated infinite fadeInLeft">fadeInLeft</div>
+    <div class="animated infinite fadeInLeftBig">fadeInLeftBig</div>
+    <div class="animated infinite fadeInRight">fadeInRight</div>
+    <div class="animated infinite fadeInRightBig">fadeInRightBig</div>
+    <div class="animated infinite fadeInUp">fadeInUp</div>
+    <div class="animated infinite fadeInUpBig">fadeInUpBig</div>
+
+    <div class="animated infinite fadeOut">fadeOut</div>
+    <div class="animated infinite fadeOutDown">fadeOutDown</div>
+    <div class="animated infinite fadeOutDownBig">fadeOutDownBig</div>
+    <div class="animated infinite fadeOutLeft">fadeOutLeft</div>
+    <div class="animated infinite fadeOutLeftBig">fadeOutLeftBig</div>
+    <div class="animated infinite fadeOutRight">fadeOutRight</div>
+    <div class="animated infinite fadeOutRightBig">fadeOutRightBig</div>
+    <div class="animated infinite fadeOutUp">fadeOutUp</div>
+    <div class="animated infinite fadeOutUpBig">fadeOutUpBig</div>
+
+    <div class="animated infinite flip">flip</div>
+    <div class="animated infinite flipInX">flipInX</div>
+    <div class="animated infinite flipInY">flipInY</div>
+    <div class="animated infinite flipOutX">flipOutX</div>
+    <div class="animated infinite flipOutY">flipOutY</div>
+
+    <div class="animated infinite lightSpeedIn">lightSpeedIn</div>
+    <div class="animated infinite lightSpeedOut">lightSpeedOut</div>
+
+    <div class="animated infinite rotateIn">rotateIn</div>
+    <div class="animated infinite rotateInDownLeft">rotateInDownLeft</div>
+    <div class="animated infinite rotateInDownRight">rotateInDownRight</div>
+    <div class="animated infinite rotateInUpLeft">rotateInUpLeft</div>
+    <div class="animated infinite rotateInUpRight">rotateInUpRight</div>
+
+    <div class="animated infinite rotateOut">rotateOut</div>
+    <div class="animated infinite rotateOutDownRight">rotateOutDownRight</div>
+    <div class="animated infinite rotateOutDownLeft">rotateOutDownLeft</div>
+    <div class="animated infinite rotateOutUpLeft">rotateOutUpLeft</div>
+    <div class="animated infinite rotateOutUpRight">rotateOutUpRight</div>
+
+    <div class="animated infinite slideInUp">slideInUp</div>
+    <div class="animated infinite slideInDown">slideInDown</div>
+    <div class="animated infinite slideInLeft">slideInLeft</div>
+    <div class="animated infinite slideInRight">slideInRight</div>
+
+    <div class="animated infinite slideOutDown">slideOutDown</div>
+    <div class="animated infinite slideOutLeft">slideOutLeft</div>
+    <div class="animated infinite slideOutRight">slideOutRight</div>
+    <div class="animated infinite slideOutUp">slideOutUp</div>
+
+    <div class="animated infinite zoomIn">zoomIn</div>
+    <div class="animated infinite zoomInDown">zoomInDown</div>
+    <div class="animated infinite zoomInLeft">zoomInLeft</div>
+    <div class="animated infinite zoomInRight">zoomInRight</div>
+    <div class="animated infinite zoomInUp">zoomInUp</div>
+
+    <div class="animated infinite zoomOut">zoomOut</div>
+    <div class="animated infinite zoomOutDown">zoomOutDown</div>
+    <div class="animated infinite zoomOutLeft">zoomOutLeft</div>
+    <div class="animated infinite zoomOutRight">zoomOutRight</div>
+    <div class="animated infinite zoomOutUp">zoomOutUp</div>
+
+    <div class="animated infinite hinge">hinge</div>
+    <div class="animated infinite rollIn">rollIn</div>
+    <div class="animated infinite rollOut">rollOut</div>
+
+</div>
+<script>
+    /* jQuery插件 */
+    $.fn.extend({
+        animateCss: function (animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
+    $(function () {
+        var animate_end = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+
+        /* 执行结束后触发 */
+        $('#animate-1').one(animate_end, function () {
+            console.log("#animate-1 over");
+        });
+
+        $('#animate-2').addClass('animated bounce');
+
+        /* html可以不被污染*/
+        $('#animate-3').animateCss('bounce');
+
+        $('#animate-4').addClass('animated bounce');
+    });
+</script>
+</body>
+</html>
