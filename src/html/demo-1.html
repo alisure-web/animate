@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate.css</title>
+    <link rel="stylesheet" href="../css/animate.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+</head>
+<body>
+
+<style>
+    .wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    .sample-1{
+        width: 400px;
+        margin: 100px auto;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    .sample-1 .top{
+        border-top: 200px solid #00CCFF;
+        border-left: 200px solid transparent;
+        border-right: 200px solid transparent;
+    }
+    .sample-1 .right{
+        border-top: 200px solid transparent;
+        border-bottom: 200px solid transparent;
+        border-right: 200px solid #00CCCC;
+        margin-left: -200px;
+    }
+    .sample-1 .bottom{
+        border-left: 200px solid transparent;
+        border-bottom: 200px solid #00CCFF;
+        border-right: 200px solid transparent;
+        margin-left: -400px;
+    }
+    .sample-1 .left{
+        border-top: 200px solid transparent;
+        border-bottom: 200px solid transparent;
+        border-left: 200px solid #00CCCC;
+        margin-left: -400px;
+    }
+</style>
+
+<div class="wrapper">
+    <div class="sample-1">
+        <div class="top"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+        <div class="left"></div>
+    </div>
+</div>
+
+<script>
+    /* jQuery插件 */
+    $.fn.extend({
+        animateInCss: function (animationName) {
+            $(this).show();
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        },
+        animateOutCss: function (animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName).hide();
+            });
+        }
+    });
+    /* 业务代码 */
+    $(function () {
+
+        /*切换*/
+        var flog = true;
+        $(document).click(function () {
+            if(flog)sample_in(); else sample_out();
+            flog = !flog;
+        });
+        $(document).dblclick(function () {
+            if(flog)sample_in(); else sample_out();
+            flog = !flog;
+        });
+        $(document).keydown(function () {
+            if(flog)sample_in(); else sample_out();
+            flog = !flog;
+        });
+
+        /*进*/
+        function sample_in() {
+            $(".sample-1 .top").animateInCss("slideInDown");
+            $(".sample-1 .right").animateInCss("slideInRight");
+            $(".sample-1 .bottom").animateInCss("slideInUp");
+            $(".sample-1 .left").animateInCss("slideInLeft");
+        }
+        /*出*/
+        function sample_out() {
+            $(".sample-1 .top").animateOutCss("slideOutUp");
+            $(".sample-1 .right").animateOutCss("slideOutRight");
+            $(".sample-1 .bottom").animateOutCss("slideOutDown");
+            $(".sample-1 .left").animateOutCss("slideOutLeft");
+        }
+    });
+</script>
+
+</body>
+</html>
